@@ -1,8 +1,20 @@
+mixin CreateImg(title, content, button, imgName)
+    .box
+        .content
+            h1=title
+            p=content
+            a(href="#")=button
+        .picture
+            img(src=imgName)
+
 <!DOCTYPE html>
 html(lang="zh")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Web_Dog
+        link(rel="stylesheet", href="./asset/css/style.css")
+        title DogLife.
     body
-        include nav.pug
+        .main
+            include nav.pug
+            +CreateImg("WE LOVE DOGS", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque odio exercitationem iste, excepturi similique omnis.", "Get in touch", "./asset/images/dog1.jpg")

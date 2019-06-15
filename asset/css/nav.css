@@ -1,5 +1,8 @@
 * {
     border: 0px solid black;
+    font-family: 微軟正黑體;
+    margin: 0;
+    padding: 0;
 }
 
 .nav .logo {
@@ -16,7 +19,6 @@
 
 .nav ul {
     float: right;
-    margin: 0px;
 }
 
 .nav ul li {
@@ -28,4 +30,5 @@
 .nav ul li a {
     color: #757575;
     text-decoration: none;
+    font-weight: 500;
 }
