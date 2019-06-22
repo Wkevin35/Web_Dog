@@ -1,10 +1,10 @@
-mixin CreateImg(title, content, button, imgName, contentDir, pictureDir, aosContent, aosPicture, duraction, delay=0)
-    .box(data-aos="fade-in")
-        .content(class=contentDir  data-aos=aosContent data-aos-duraction=duraction data-aos-delay=delay)
+mixin CreateImg(title, content, button, imgName)
+    .box(data-aos="flip-right")
+        .content
             h1=title
             p=content
             a(href="#" class="button")=button
-        .picture(class=pictureDir  data-aos=aosPicture  data-aos-duraction=duraction)
+        .picture
             img(src=imgName)
 
 mixin CreateTitle(title, content)
@@ -17,8 +17,8 @@ mixin CreateInfo(title, content)
         h3=title
         p=content
 
-mixin CreatePrice(classname, img, title, price)
-    div(class=classname style="text-align: center;padding: 10px;")
+mixin CreatePrice(classname, img, title, price, delay=0)
+    div(class=classname style="text-align: center;padding: 10px;" data-aos="zoom-in-up" data-aos-delay=delay)
         .priceContain
             - for(var i=0; i<img; i++)
                 img(src="./asset/images/bone.png")
@@ -37,19 +37,19 @@ html(lang="zh")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="./asset/css/style.css")
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        link(rel="stylesheet", href="./asset/css/style.css")
         title DogLife.
     body
         .main
             include nav.pug
-            +CreateImg("我們愛狗", "我們是一群熱愛狗的人士，為了保護與關懷狗建立此網站。", "Get in touch", "./asset/images/dog1.jpg", "right", "left", "fade-in", "fade-in", 5000, 500)
-            +CreateImg("快樂的寵物", "讓寵物擁有開心的生活空間與品質。", "Get in touch", "./asset/images/dog2.jpg", "left", "right", "slide-right", "slide-left", 5000)
+            +CreateImg("我們愛狗", "我們是一群熱愛狗的人士，為了保護與關懷狗建立此網站。", "詳閱", "./asset/images/dog1.jpg")
+            +CreateImg("快樂的寵物", "讓寵物擁有開心的生活空間與品質。", "詳閱", "./asset/images/dog2.jpg")
             +CreateTitle("價格表", "我們網站提供三種付費服務，您可以根據自己的需求選擇。")
             .priceBox
-                +CreatePrice("basic", 1, "基本", "$500 元/year") 
-                +CreatePrice("premiumn", 2, "高級", "$1000 元/year")
-                +CreatePrice("pro", 3, "專業", "$3000 元/year")
+                +CreatePrice("basic", 1, "基本", "$500 元/year", 0) 
+                +CreatePrice("premiumn", 2, "高級", "$1000 元/year", 100)
+                +CreatePrice("pro", 3, "專業", "$3000 元/year", 200)
         .contactBox
             +CreateTitle("聯絡我們", "如果有任何問題，歡迎來信通知我們。")
             .contact
@@ -69,7 +69,7 @@ html(lang="zh")
             .footerBox
                 .top
                     .about
-                        +CreateInfo("關於我們", "台中市汪汪路一段777號")
+                        +CreateInfo("關於我們", "歡迎來到我們的網站,在我們的網站內，你可以找到跟寵物相關的資訊。")
                     .link
                         h3="快速連結" 
                         .linkpage
@@ -83,11 +83,10 @@ html(lang="zh")
                 hr(style="border:1px solid white;")
                 .bottom
                     span KEVIN &copy; 2019
-    | <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    | <script>
-    |    AOS.init({
-    |       duraction: 3000,
-    |       offset: 600
-    |    });
-    | </script>              
+        | <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        | <script>
+        |    AOS.init({
+        |       duraction: 3000
+        |    });
+        | </script>              
 
