@@ -54,8 +54,6 @@ a {
     grid-template-columns: 400px auto;
     grid-gap: 0 10px;
     margin: 50px;
-    height: 600px;
-    grid-template-areas: "left right";
 }
 
 .box .left {
@@ -182,4 +180,74 @@ footer .bottom {
     text-align: center;
     margin: 50px;
     
+}
+
+@media screen and (max-width: 767px) {
+    .main {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .box {
+        text-align: center;
+        grid-template-columns: 100%;
+        margin-top: 60px;
+    }
+    .box .picture img[src="./asset/images/dog1.jpg"] {
+        margin-top: 50px;
+    }
+
+    .box .picture {
+        margin-top: 30px;
+    }
+    .priceBox {
+        grid-template-columns: auto;
+    }
+
+    .contact {
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+
+    footer .top {
+        grid-template-columns: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .main {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .box {
+        text-align: center;
+        grid-template-columns: 100%;
+        
+    }
+    
+    .box .picture img[src="./asset/images/dog1.jpg"] {
+        margin-top: 100px;
+    }
+
+    .box .picture {
+        margin-top: 30px;
+    }
+    
+    .priceBox {
+        grid-template-columns: auto auto ;
+    }
+
+    .contact {
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+
+    footer .top {
+        grid-template-columns: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
 }
